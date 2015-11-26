@@ -1,0 +1,63 @@
+!-*- PHASE0 -*-
+control {
+	condition = initial 
+}
+
+accuracy {
+	cutoff_wf =  25.0 Rydberg
+	cutoff_cd = 230.0 Rydberg
+	num_bands = 12
+	ksampling {
+	!	method = monk 
+		mesh { nx = 6, ny = 6, nz = 4 }
+	}
+	scf_convergence { delta_total_energy = 1.0e-8 }
+	force_convergence { max_force = 5.0e-4 }
+}
+
+structure {
+	unit_cell_type = Bravais 
+	unit_cell {
+	#units angstrom
+		a = 3.1891, b = 3.1891, c = 5.1855  ! experiment
+		alpha = 90.0, beta = 90.0, gamma = 120.0
+	}
+	symmetry {
+		method = automatic
+		tspace { lattice_system = hexagonal }
+	}
+	atom_list {
+		atoms {
+		#tag element rx ry rz mobile
+			Ga 0.3333333333 0.6666666667 0.3775924954 on
+			Ga 0.6666666667 0.3333333333 0.8775924954 on
+			N  0.3333333333 0.6666666667 0.0
+			N  0.6666666667 0.3333333333 0.5
+		}
+	}
+	element_list {
+	#tag element atomicnumber
+		Ga        31
+		N          7
+	}
+}
+
+wavefunction_solver {
+	solvers{
+	#tag    sol  till_n
+		pkosugi  2
+		rmm3    -1
+	}
+	rmm { edelta_change_to_rmm = 1.0e-4 }
+}
+
+charge_mixing {
+	mixing_methods {
+	#tag   no method rmxs
+		1  pulay 0.40
+	}
+}
+
+postprocessing {
+	dos { sw_dos = on }
+}
