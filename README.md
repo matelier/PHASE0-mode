@@ -5,7 +5,7 @@ Emacs 23と24で動作確認しました。
 
 ##インストールと設定
 * 「phase0-mode.el」ファイルを「~/.emacs.d/lisp/」にコピーしてください。
-* 「~/.emacs」に以下の記述を追加してください。  
+* 「~/.emacs.d/init.el」に以下の記述を追加してください。  
 `(add-to-list 'load-path "~/.emacs.d/lisp/")`  
 ``(require `phase0-mode)``
 
