@@ -1,4 +1,4 @@
-;;PHASE0 MODE (2016xxxx.006beta)
+;;PHASE0 MODE (201611xx.006beta2)
 
 ;; Copyright (C) 2015, 2016, ASMS Co., Ltd.
 ;; This file cannot be further distributed either in the original or in a modified form.
@@ -32,7 +32,7 @@
 		"dft-d2"
 		"facecentered" "bodycentered" "basecentered" "hexagonal" "rhombohedral"
 		"internal" "cartesian"
-		"bravais" "primitive" "ferro" "para" "initially"
+		"bravais" "primitive" "ferro" "antiferro" "para" "initially"
 		"rmm3" "davidson" "mddavidson" "pdavidson" "mdkosugi" "pkosugi"
 		"pulay" "broyden2" "simple"
 		"quench" "cg" "gdiis" "bfgs"
@@ -56,7 +56,7 @@
     ("solvers\\|line_minimization\\|stress[ \t]*{\\|[pl]?dos[ \t]*{" . font-lock-type-face)
     ("charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                   . font-lock-type-face)
-    ("lattice\\|polarization"                                        . font-lock-type-face)
+    ("lattice[ \t]*{\\|polarization"                                 . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face) 
     ;; Variables
@@ -100,13 +100,15 @@
       (set-syntax-table phase0-mode-syntax-table)
       (setq-local font-lock-defaults
 		  `(phase0-mode-font-lock-keywords nil t))
-      (run-hooks 'phase0-mode-hook))
+      (run-hooks 'phase0-mode-hook)
+      )
   (define-derived-mode phase0-mode prog-mode "PHASE0"
     "Major mode for editing PHASE0 input file."
     (set-syntax-table phase0-mode-syntax-table)
     (setq-local font-lock-defaults
 		`(phase0-mode-font-lock-keywords nil t))
-    (run-hooks 'phase0-mode-hook)))
+    (run-hooks 'phase0-mode-hook)
+    ))
 
 ;;OUTLINE MODE
 ;;\C-c\C-o\C-t  hide-body
