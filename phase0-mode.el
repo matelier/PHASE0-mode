@@ -1,4 +1,4 @@
-;;PHASE0 MODE (201611xx.006beta2)
+;;PHASE0 MODE (201612xx.006beta4)
 
 ;; Copyright (C) 2015, 2016, ASMS Co., Ltd.
 ;; This file cannot be further distributed either in the original or in a modified form.
@@ -28,7 +28,7 @@
 (defconst phase0-mode-keywords-regexp
   (regexp-opt `("automatic" "initial" "continuation" "fixed_charge"
 		"file" "monk" "mesh" "tetrahedral" "parabolic"
-		"atomic_charge_density"
+		"atomic_charge_density" "atomic_orbitals"
 		"dft-d2"
 		"facecentered" "bodycentered" "basecentered" "hexagonal" "rhombohedral"
 		"internal" "cartesian"
@@ -37,7 +37,7 @@
 		"pulay" "broyden2" "simple"
 		"quench" "cg" "gdiis" "bfgs"
 		"velocity_verlet"
-		"hse06" "cube" "individual" "effective_charge")))
+		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const" )))
 
 (defvar phase0-mode-font-lock-keywords
   `(
@@ -50,35 +50,35 @@
     ("berry_phase\\|epsilon" . font-lock-function-name-face)
     ;; 2nd Level
     ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence\\|\\bhybrid_functional" . font-lock-type-face)
-    ("hubbard\\|projector_list"                                      . font-lock-type-face)
-    ("unit_cell[ \t]*{\\|symmetry\\|atom_list\\|element_list"        . font-lock-type-face)
-    ("ferromagnetic_state"                                           . font-lock-type-face)
-    ("solvers\\|line_minimization\\|stress[ \t]*{\\|[pl]?dos[ \t]*{" . font-lock-type-face)
-    ("charge[ \t]*{"                                                 . font-lock-type-face)
-    ("rmm[ \t]*{\\|mixing_methods"                                   . font-lock-type-face)
-    ("lattice[ \t]*{\\|polarization"                                 . font-lock-type-face)
+    ("hubbard\\|projector_list"                                          . font-lock-type-face)
+    ("unit_cell[ \t]*{\\|symmetry\\|atom_list\\|element_list\\|strain"   . font-lock-type-face)
+    ("ferromagnetic_state"                                               . font-lock-type-face)
+    ("solvers\\|line_minimization\\|stress[ \t]*{\\|[pl]?dos[ \t]*{"     . font-lock-type-face)
+    ("charge[ \t]*{"                                                     . font-lock-type-face)
+    ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
+    ("lattice[ \t]*{\\|polarization\\|workfunc"                          . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face) 
     ;; Variables
-    ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"   . font-lock-variable-name-face)
-    ("PAW\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands". font-lock-variable-name-face)
-    ("unit_cell_type\\|lattice_system"                         . font-lock-variable-name-face)
-    ("coordinate_system"                                       . font-lock-variable-name-face)
-    ("functional_type"                                         . font-lock-variable-name-face)
-    ("vdw_method"                                              . font-lock-variable-name-face)
-    ("magnetic_state\\|spin_fix_period\\|total_spin"           . font-lock-variable-name-face)
-    ("condition\\|max_iteration\\|cpumax\\|method"             . font-lock-variable-name-face)
-    ("delta_\\(total_energy\\|eigenvalue\\)"                   . font-lock-variable-name-face)
-    ("max_force"                                               . font-lock-variable-name-face)
-    ("edelta_change_to_rmm"                                    . font-lock-variable-name-face)
-    ("displacement"                                            . font-lock-variable-name-face)
-    ("dt_\\(upp\\|low\\)er_critical"                           . font-lock-variable-name-face)
-    ("\\bn[xyz]\\b\\|\\bk[123]\\b"                             . font-lock-variable-name-face)
-    ("\\b[abc]_vector\\b"                                      . font-lock-variable-name-face)
-    ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"              . font-lock-variable-name-face)
-    ("filetype\\|title\\|partial_charge"                       . font-lock-variable-name-face)
-    ("erange_\\(min\\|max\\|delta\\)"                          . font-lock-variable-name-face)
-    ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"      . font-lock-variable-name-face)
+    ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"     . font-lock-variable-name-face)
+    ("PAW\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
+    ("unit_cell_type\\|lattice_system"                           . font-lock-variable-name-face)
+    ("coordinate_system"                                         . font-lock-variable-name-face)
+    ("functional_type"                                           . font-lock-variable-name-face)
+    ("vdw_method"                                                . font-lock-variable-name-face)
+    ("magnetic_state\\|spin_fix_period\\|total_spin"             . font-lock-variable-name-face)
+    ("condition\\|max_iteration\\|cpumax\\|method"               . font-lock-variable-name-face)
+    ("delta_\\(total_energy\\|eigenvalue\\)"                     . font-lock-variable-name-face)
+    ("max_force"                                                 . font-lock-variable-name-face)
+    ("edelta_change_to_rmm"                                      . font-lock-variable-name-face)
+    ("displacement"                                              . font-lock-variable-name-face)
+    ("dt_\\(upp\\|low\\)er_critical"                             . font-lock-variable-name-face)
+    ("\\bn[xyz]\\b\\|\\bk[123]\\b"                               . font-lock-variable-name-face)
+    ("\\b[abc]_vector\\b"                                        . font-lock-variable-name-face)
+    ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
+    ("filetype\\|title\\|partial_charge"                         . font-lock-variable-name-face)
+    ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
+    ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
     ;; Keywords
     ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
@@ -108,6 +108,8 @@
     (setq-local font-lock-defaults
 		`(phase0-mode-font-lock-keywords nil t))
     (run-hooks 'phase0-mode-hook)
+    ;(show-paren-mode t)
+    (setq tab-always-indent t) ; experimental
     ))
 
 ;;OUTLINE MODE
