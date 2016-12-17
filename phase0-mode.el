@@ -1,4 +1,4 @@
-;;PHASE0 MODE (201612xx.006beta4)
+;;PHASE0 MODE (20161217.006)
 
 ;; Copyright (C) 2015, 2016, ASMS Co., Ltd.
 ;; This file cannot be further distributed either in the original or in a modified form.
@@ -29,14 +29,13 @@
   (regexp-opt `("automatic" "initial" "continuation" "fixed_charge"
 		"file" "monk" "mesh" "tetrahedral" "parabolic"
 		"atomic_charge_density" "atomic_orbitals"
-		"dft-d2"
+		"dft-d2" "pawpot"
 		"facecentered" "bodycentered" "basecentered" "hexagonal" "rhombohedral"
 		"internal" "cartesian"
-		"bravais" "primitive" "ferro" "antiferro" "para" "initially"
+		"bravais" "primitive" "ferro" "antiferro" "para" "noncollinear" "initially"
 		"rmm3" "davidson" "mddavidson" "pdavidson" "mdkosugi" "pkosugi"
 		"pulay" "broyden2" "simple"
-		"quench" "cg" "gdiis" "bfgs"
-		"velocity_verlet"
+		"quench" "cg" "gdiis" "bfgs" "velocity_verlet"
 		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const" )))
 
 (defvar phase0-mode-font-lock-keywords
@@ -61,12 +60,11 @@
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face) 
     ;; Variables
     ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"     . font-lock-variable-name-face)
-    ("PAW\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
+    ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands" . font-lock-variable-name-face)
     ("unit_cell_type\\|lattice_system"                           . font-lock-variable-name-face)
     ("coordinate_system"                                         . font-lock-variable-name-face)
-    ("functional_type"                                           . font-lock-variable-name-face)
-    ("vdw_method"                                                . font-lock-variable-name-face)
-    ("magnetic_state\\|spin_fix_period\\|total_spin"             . font-lock-variable-name-face)
+    ("functional_type" "vdw_method"                              . font-lock-variable-name-face)
+    ("magnetic_state\\|spin_fix_period\\|total_spin\\|spinorbit" . font-lock-variable-name-face)
     ("condition\\|max_iteration\\|cpumax\\|method"               . font-lock-variable-name-face)
     ("delta_\\(total_energy\\|eigenvalue\\)"                     . font-lock-variable-name-face)
     ("max_force"                                                 . font-lock-variable-name-face)
