@@ -1,9 +1,9 @@
-;;PHASE0 MODE (20161217.006)
+;;PHASE0 MODE
 
 ;; Copyright (C) 2015, 2016, ASMS Co., Ltd.
 ;; This file cannot be further distributed either in the original or in a modified form.
 ;; Users are free to modify the code solely for their personal use
-;; and are encouraged to share their improvements with the authors at (info@asms.co.jp). 
+;; and are encouraged to share their improvements with the authors at (info@asms.co.jp).
 
 ;;(add-to-list `interpreter-mode-alist `("phase0" . phase0-mode))
 ;;(add-to-list 'auto-mode-alist '("phase0", phase0-mode))
@@ -20,8 +20,8 @@
   (let ((st (make-syntax-table text-mode-syntax-table)))
     (modify-syntax-entry ?!  "<" st)  ; comment start
     (modify-syntax-entry ?\n ">" st)  ; comment end
-;    (modify-syntax-entry ?\{ "(}" st)  ; 
-;    (modify-syntax-entry ?\} ")}" st)  ; 
+;    (modify-syntax-entry ?\{ "(}" st)  ;
+;    (modify-syntax-entry ?\} ")}" st)  ;
    st)
   "Syntax table for phase0 mode")
 
@@ -53,14 +53,14 @@
     ("unit_cell[ \t]*{\\|symmetry\\|atom_list\\|element_list\\|strain"   . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
     ("solvers\\|line_minimization\\|stress[ \t]*{\\|[pl]?dos[ \t]*{"     . font-lock-type-face)
-    ("charge[ \t]*{"                                                     . font-lock-type-face)
+    ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
     ("lattice[ \t]*{\\|polarization\\|workfunc"                          . font-lock-type-face)
     ;; 3rd Level
-    ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face) 
+    ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ;; Variables
     ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"     . font-lock-variable-name-face)
-    ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands" . font-lock-variable-name-face)
+    ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
     ("unit_cell_type\\|lattice_system"                           . font-lock-variable-name-face)
     ("coordinate_system"                                         . font-lock-variable-name-face)
     ("functional_type" "vdw_method"                              . font-lock-variable-name-face)
