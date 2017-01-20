@@ -48,7 +48,8 @@
     ("control\\|accuracy\\|structure\\(_evolution\\)?\\|wavefunction_solver\\|charge_mixing\\|postprocessing\\|phonon\\|print\\(out\\)?level" . font-lock-function-name-face)
     ("berry_phase\\|epsilon" . font-lock-function-name-face)
     ;; 2nd Level
-    ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence\\|\\bhybrid_functional" . font-lock-type-face)
+    ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence"         . font-lock-type-face)
+    ("esm\\|\\bhybrid_functional"                                        . font-lock-type-face)
     ("hubbard\\|projector_list"                                          . font-lock-type-face)
     ("unit_cell[ \t]*{\\|symmetry\\|atom_list\\|element_list\\|strain"   . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
@@ -63,9 +64,9 @@
     ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
     ("unit_cell_type\\|lattice_system"                           . font-lock-variable-name-face)
     ("coordinate_system"                                         . font-lock-variable-name-face)
-    ("functional_type" "vdw_method"                              . font-lock-variable-name-face)
+    ("functional_type\\|vdw_method"                              . font-lock-variable-name-face)
     ("magnetic_state\\|spin_fix_period\\|total_spin\\|spinorbit" . font-lock-variable-name-face)
-    ("condition\\|max_iteration\\|cpumax\\|method"               . font-lock-variable-name-face)
+    ("condition\\|max_iteration\\|cpumax\\|\\bmethod"            . font-lock-variable-name-face)
     ("delta_\\(total_energy\\|eigenvalue\\)"                     . font-lock-variable-name-face)
     ("max_force"                                                 . font-lock-variable-name-face)
     ("edelta_change_to_rmm"                                      . font-lock-variable-name-face)
@@ -78,6 +79,7 @@
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
     ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
+    ("electric_field"                                            . font-lock-variable-name-face)
     ;; Keywords
     ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
