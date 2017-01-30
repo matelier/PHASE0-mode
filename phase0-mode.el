@@ -56,7 +56,7 @@
     ("solvers\\|line_minimization\\|stress[ \t]*{\\|[pl]?dos[ \t]*{"     . font-lock-type-face)
     ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
-    ("lattice[ \t]*{\\|polarization\\|workfunc"                          . font-lock-type-face)
+    ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier"                . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ;; Variables
@@ -79,7 +79,7 @@
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
     ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
-    ("electric_field"                                            . font-lock-variable-name-face)
+    ("electric_field\\|nb_wan90\\|seedname"                      . font-lock-variable-name-face)
     ;; Keywords
     ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
