@@ -79,7 +79,8 @@
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
     ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
-    ("electric_field\\|nb_wan90\\|seedname"                      . font-lock-variable-name-face)
+    ("electric_field"                                            . font-lock-variable-name-face)
+    ("nb_wan90\\|seedname\\|spin_component_wan90"                . font-lock-variable-name-face)
     ;; Keywords
     ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
