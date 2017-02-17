@@ -77,8 +77,9 @@
     ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
     ("filetype\\|title\\|partial_charge"                         . font-lock-variable-name-face)
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
-    ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
+    ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
+    ("electronic_dielectric_constant"                            . font-lock-variable-name-face)
     ("electric_field"                                            . font-lock-variable-name-face)
     ("nb_wan90\\|seedname\\|spin_component_wan90"                . font-lock-variable-name-face)
     ;; Keywords
