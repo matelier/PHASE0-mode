@@ -58,9 +58,11 @@
     ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
     ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier"                . font-lock-type-face)
+    ("photon\\|transition_moment\\|BZ_integration\\|band_gap_correction" . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
-    ("partial_charge[ \t]*{\\|layerdos"                               . font-lock-reference-face)
+    ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
+    ("polar\\|pointing\\|energy[ \t]*"                         . font-lock-reference-face)
     ;; Variables
     ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"     . font-lock-variable-name-face)
     ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
@@ -79,7 +81,7 @@
     ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
     ("partial_charge_filetype\\|filetype\\|title"                . font-lock-variable-name-face)
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
-    ("BZ_integration\\|transition_moment\\|photon\\|crystal_type". font-lock-variable-name-face)
+    ("photon\\|crystal_type\\|scissor_operator"                  . font-lock-variable-name-face)
     ("displaced_atom\\|\\bu[xyz]\\b\\|g_index\\|property"        . font-lock-variable-name-face)
     ("electronic_dielectric_constant"                            . font-lock-variable-name-face)
     ("electric_field"                                            . font-lock-variable-name-face)
