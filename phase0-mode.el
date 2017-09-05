@@ -32,12 +32,15 @@
 		"dft-d2" "pawpot"
 		"facecentered" "bodycentered" "basecentered" "hexagonal" "rhombohedral"
 		"internal" "cartesian"
-		"bravais" "primitive" "ferro" "antiferro" "para" "noncollinear" "initially"
+		"bravais" "primitive" "ferro" "antiferro" "para" "collinear" "noncollinear" "initially"
+		"restricted" "unrestricted" "disregard"
 		"rmm3" "davidson" "mddavidson" "pdavidson" "mdkosugi" "pkosugi"
 		"pulay" "broyden2" "simple"
 		"quench" "cg" "gdiis" "bfgs" "velocity_verlet"
 		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const"
-		"by_atomic_positions" "regular_intervals")))
+		"by_atomic_positions" "regular_intervals"
+		"ks" "single" "powder"
+		)))
 
 (defvar phase0-mode-font-lock-keywords
   `(
@@ -57,12 +60,15 @@
     ("\\(solvers\\|line_minimization\\|stress\\|[pl \t]dos\\)[ \t]*{"    . font-lock-type-face)
     ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
-    ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier"                . font-lock-type-face)
+    ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier\\|raman"        . font-lock-type-face)
     ("photon\\|transition_moment\\|BZ_integration\\|band_gap_correction" . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
-    ("polar\\|pointing\\|energy[ \t]*{"                        . font-lock-reference-face)
+    ("polar\\|poynting\\|energy[ \t]*{"                        . font-lock-reference-face)
+    ("spectrum\\|propagation"                                  . font-lock-reference-face)
+    ;; 4th Level
+    ("incident\\|scattered"     . font-lock-variable-name-face)
     ;; Variables
     ("initial_\\(wavefunctions\\|charge_density\\|occmat\\)"     . font-lock-variable-name-face)
     ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
@@ -77,7 +83,9 @@
     ("edelta_change_to_rmm"                                      . font-lock-variable-name-face)
     ("displacement"                                              . font-lock-variable-name-face)
     ("dt_\\(upp\\|low\\)er_critical"                             . font-lock-variable-name-face)
-    ("\\bn[xyz]\\b\\|\\bk[123]\\b"                               . font-lock-variable-name-face)
+    ("\\bn[xyz]\\b\\|\\bk[123]\\b\\|\\bk[xyz]\\b\\|\\bp[xyz]\\b" . font-lock-variable-name-face)
+    ("temperature\\|freq_pitch\\|hwhm"                           . font-lock-variable-name-face)
+    ("low\\|high\\|step"                                         . font-lock-variable-name-face)
     ("\\b[abc]_vector\\b"                                        . font-lock-variable-name-face)
     ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
     ("partial_charge_filetype\\|filetype\\|title"                . font-lock-variable-name-face)
