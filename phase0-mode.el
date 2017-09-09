@@ -45,7 +45,7 @@
 (defvar phase0-mode-font-lock-keywords
   `(
     ("sw_[a-z_]+" . font-lock-variable-name-face)
-    ("^[ \t]*#\\(tag\\|units\\|default\\).*"      . font-lock-string-face)
+    ("^[ \t]*#\\(tag *\\(no\\)?\\|units\\|default\\)"      . font-lock-string-face)
     ;; Number (literal)
     ("[ \t=][-+]?[0-9\.]+\\([deDE][-+]?[0-9]+\\)?" . font-lock-constant-face)
     ;; 1st Level
@@ -53,7 +53,7 @@
     ("berry_phase\\|epsilon" . font-lock-function-name-face)
     ;; 2nd Level
     ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence"         . font-lock-type-face)
-    ("esm\\|\\bhybrid_functional"                                        . font-lock-type-face)
+    ("esm\\|\\bhybrid_functional\\|spinorbit"                            . font-lock-type-face)
     ("hubbard\\|projector_list"                                          . font-lock-type-face)
     ("\\(unit_cell\\|symmetry\\|atom_list\\|element_list\\|strain\\)[ \t]*{" . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
@@ -76,7 +76,7 @@
     ("coordinate_system"                                         . font-lock-variable-name-face)
     ("functional_type\\|vdw_method"                              . font-lock-variable-name-face)
     ("base_\\(reduction\\|symmetrization\\)_for_GAMMA"           . font-lock-variable-name-face)
-    ("magnetic_state\\|spin_fix_period\\|total_spin\\|spinorbit" . font-lock-variable-name-face)
+    ("magnetic_state\\|spin_fix_period\\|total_spin\\|mode"      . font-lock-variable-name-face)
     ("condition\\|max_iteration\\|cpumax\\|\\bmethod"            . font-lock-variable-name-face)
     ("delta_\\(total_energy\\|eigenvalue\\)"                     . font-lock-variable-name-face)
     ("max_force"                                                 . font-lock-variable-name-face)
@@ -96,10 +96,13 @@
     ("electric_field"                                            . font-lock-variable-name-face)
     ("nb_wan90\\|seedname\\|spin_component_wan90"                . font-lock-variable-name-face)
     ("normal_axis\\|slicing_way\\|crtdst"                        . font-lock-variable-name-face)
+    ("mobile\\|\\br[x-z]\\b"                                     . font-lock-variable-name-face)
+    ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"  . font-lock-variable-name-face)
+    ("sol\\|till_n\\|rmxs"                                       . font-lock-variable-name-face)
     ;; Keywords
     ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
-    ("rydberg\\|hartree\\|angstrom\\|bohr\\|GPa\\|eV\\|hour\\|day\\|[ \t]sec\\|[ \t]fs" . font-lock-builtin-face) ;; . font-lock-warning-face)
+    ("rydberg\\|hartree\\|angstrom\\|bohr\\|GPa\\|eV\\|atomic_mass\\|hour\\|day\\|[ \t]sec\\|[ \t]fs" . font-lock-builtin-face) ;; . font-lock-warning-face)
     , phase0-mode-keywords-regexp
       ))
 
