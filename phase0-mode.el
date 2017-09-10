@@ -26,7 +26,7 @@
   "Syntax table for phase0 mode")
 
 (defconst phase0-mode-keywords-regexp
-  (regexp-opt `("automatic" "initial" "continuation" "fixed_charge"
+  (regexp-opt `("on" "off" "automatic" "initial" "continuation" "fixed_charge"
 		"file" "monk" "mesh" "tetrahedral" "parabolic"
 		"atomic_charge_density" "atomic_orbitals"
 		"dft-d2" "pawpot"
@@ -86,8 +86,8 @@
     ("\\bn[xyz]\\b\\|\\bk[123]\\b\\|\\bk[xyz]\\b\\|\\bp[xyz]\\b" . font-lock-variable-name-face)
     ("temperature\\|freq_pitch\\|hwhm"                           . font-lock-variable-name-face)
     ("low\\|high\\|step"                                         . font-lock-variable-name-face)
-    ("\\b[abc]_vector\\b"                                        . font-lock-variable-name-face)
-    ("\\b[abc]\\b\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
+    ("\\b[a-c]_vector\\b"                                        . font-lock-variable-name-face)
+    ("\\b[a-c][ \t]*=\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
     ("partial_charge_filetype\\|filetype\\|title"                . font-lock-variable-name-face)
     ("erange_\\(min\\|max\\|delta\\)"                            . font-lock-variable-name-face)
     ("photon\\|crystal_type\\|scissor_operator\\|symmetry"       . font-lock-variable-name-face)
@@ -100,7 +100,7 @@
     ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"  . font-lock-variable-name-face)
     ("sol\\|till_n\\|rmxs"                                       . font-lock-variable-name-face)
     ;; Keywords
-    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
+;;    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
     ("rydberg\\|hartree\\|angstrom\\|bohr\\|GPa\\|eV\\|atomic_mass\\|hour\\|day\\|[ \t]sec\\|[ \t]fs" . font-lock-builtin-face) ;; . font-lock-warning-face)
     , phase0-mode-keywords-regexp
