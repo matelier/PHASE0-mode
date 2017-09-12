@@ -57,7 +57,7 @@
     ("hubbard\\|projector_list"                                          . font-lock-type-face)
     ("\\(unit_cell\\|symmetry\\|atom_list\\|element_list\\|strain\\)[ \t]*{" . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
-    ("\\(solvers\\|line_minimization\\|stress\\|[pl \t]dos\\)[ \t]*{"    . font-lock-type-face)
+    ("\\(solvers\\|line_minimization\\|[^_]stress\\|[pl \t]dos\\)[ \t]*{"  . font-lock-type-face)
     ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
     ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier\\|raman"        . font-lock-type-face)
@@ -67,6 +67,7 @@
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
     ("polar\\|poynting\\|energy[ \t]*{"                        . font-lock-reference-face)
     ("spectrum\\|propagation"                                  . font-lock-reference-face)
+    ("external_stress"                                         . font-lock-reference-face)
     ;; 4th Level
     ("incident\\|scattered"     . font-lock-variable-name-face)
     ;; Variables
@@ -79,7 +80,7 @@
     ("magnetic_state\\|spin_fix_period\\|total_spin\\|mode"      . font-lock-variable-name-face)
     ("condition\\|max_iteration\\|cpumax\\|\\bmethod"            . font-lock-variable-name-face)
     ("delta_\\(total_energy\\|eigenvalue\\)"                     . font-lock-variable-name-face)
-    ("max_force"                                                 . font-lock-variable-name-face)
+    ("max_force\\|max_stress"                                    . font-lock-variable-name-face)
     ("edelta_change_to_rmm"                                      . font-lock-variable-name-face)
     ("displacement"                                              . font-lock-variable-name-face)
     ("dt_\\(upp\\|low\\)er_critical"                             . font-lock-variable-name-face)
@@ -96,9 +97,10 @@
     ("electric_field"                                            . font-lock-variable-name-face)
     ("nb_wan90\\|seedname\\|spin_component_wan90"                . font-lock-variable-name-face)
     ("normal_axis\\|slicing_way\\|crtdst"                        . font-lock-variable-name-face)
-    ("mobile\\|\\br[x-z]\\b"                                     . font-lock-variable-name-face)
+    ("mobile\\|\\br[x-z]\\b\\|\\bvdw\\b"                         . font-lock-variable-name-face)
     ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"  . font-lock-variable-name-face)
     ("sol\\|till_n\\|rmxs"                                       . font-lock-variable-name-face)
+    ("s\\(11\\|22\\|33\\)"                                       . font-lock-variable-name-face)
     ;; Keywords
 ;;    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
