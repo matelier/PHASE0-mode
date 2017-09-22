@@ -66,7 +66,7 @@
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
     ("polar\\|poynting\\|energy[ \t]*{"                        . font-lock-reference-face)
-    ("spectrum\\|propagation"                                  . font-lock-reference-face)
+    ("spectrum\\|propagation\\|laser"                          . font-lock-reference-face)
     ("external_stress"                                         . font-lock-reference-face)
     ;; 4th Level
     ("incident\\|scattered"     . font-lock-variable-name-face)
@@ -85,7 +85,7 @@
     ("displacement"                                              . font-lock-variable-name-face)
     ("dt_\\(upp\\|low\\)er_critical"                             . font-lock-variable-name-face)
     ("\\bn[xyz]\\b\\|\\bk[123]\\b\\|\\bk[xyz]\\b\\|\\bp[xyz]\\b" . font-lock-variable-name-face)
-    ("temperature\\|freq_pitch\\|hwhm"                           . font-lock-variable-name-face)
+    ("temperature\\|freq_pitch\\|hwhm\\|wavelength"              . font-lock-variable-name-face)
     ("low\\|high\\|step"                                         . font-lock-variable-name-face)
     ("\\b[a-c]_vector\\b"                                        . font-lock-variable-name-face)
     ("\\b[a-c][ \t]*=\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
