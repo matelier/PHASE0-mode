@@ -39,7 +39,7 @@
 		"quench" "cg" "gdiis" "bfgs" "velocity_verlet"
 		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const"
 		"by_atomic_positions" "regular_intervals"
-		"ks" "single" "powder"
+		"ks" "single" "powder" "proportional" "directin"
 		)))
 
 (defvar phase0-mode-font-lock-keywords
@@ -50,7 +50,7 @@
     ("[ \t=][-+]?[0-9\.]+\\([deDE][-+]?[0-9]+\\)?" . font-lock-constant-face)
     ;; 1st Level
     ("control\\|accuracy\\|structure\\(_evolution\\)?\\|wavefunction_solver\\|charge_mixing\\|postprocessing\\|phonon\\|print\\(out\\)?level" . font-lock-function-name-face)
-    ("berry_phase\\|epsilon" . font-lock-function-name-face)
+    ("berry_phase\\|epsilon\\|multiple_replica[ \t]*{" . font-lock-function-name-face)
     ;; 2nd Level
     ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence"         . font-lock-type-face)
     ("esm\\|\\bhybrid_functional\\|spinorbit"                            . font-lock-type-face)
@@ -62,6 +62,8 @@
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
     ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier\\|raman"        . font-lock-type-face)
     ("photon\\|transition_moment\\|BZ_integration\\|band_gap_correction" . font-lock-type-face)
+    ("replicas[ \t]*{"                                       . font-lock-type-face)
+    ("atom_list_end[01]"                                       . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
@@ -101,10 +103,12 @@
     ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"  . font-lock-variable-name-face)
     ("sol\\|till_n\\|rmxs"                                       . font-lock-variable-name-face)
     ("s\\(11\\|22\\|33\\)"                                       . font-lock-variable-name-face)
+    ("multiple_replica_mode\\|howtogive_coordinates\\|number_of_replicas" . font-lock-variable-name-face)
+    ("ueff\\|group\\|radius\\|proj_group\\|\\bl\\b" . font-lock-variable-name-face)
     ;; Keywords
 ;;    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
     ;; Units
-    ("rydberg\\|hartree\\|angstrom\\|bohr\\|GPa\\|eV\\|atomic_mass\\|hour\\|day\\|[ \t]sec\\|[ \t]fs" . font-lock-builtin-face) ;; . font-lock-warning-face)
+    ("rydberg\\|hartree\\|angstrom\\|bohr\\|GPa\\|eV\\|atomic_mass\\|min\\|hour\\|day\\|[ \t]sec\\|[ \t]fs" . font-lock-builtin-face) ;; . font-lock-warning-face)
     , phase0-mode-keywords-regexp
       ))
 
