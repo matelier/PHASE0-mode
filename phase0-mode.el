@@ -29,7 +29,7 @@
   (regexp-opt `("on" "off" "automatic" "initial" "continuation" "fixed_charge"
 		"file" "monk" "mesh" "tetrahedral" "parabolic"
 		"atomic_charge_density" "atomic_orbitals"
-		"dft-d2" "pawpot"
+		"dft-d2" "pbesol" "vdwdf2" "pawpot"
 		"facecentered" "bodycentered" "basecentered" "hexagonal" "rhombohedral"
 		"internal" "cartesian"
 		"bravais" "primitive"
@@ -79,7 +79,7 @@
     ("PAW[ \t]*=\\|cutoff_\\(cd\\|wf\\)\\|num_bands\\|num_extra_bands"  . font-lock-variable-name-face)
     ("unit_cell_type\\|lattice_system"                               . font-lock-variable-name-face)
     ("coordinate_system"                                             . font-lock-variable-name-face)
-    ("functional_type\\|vdw_method"                                  . font-lock-variable-name-face)
+    ("functional_type\\|vdw_method\\|xctype"                         . font-lock-variable-name-face)
     ("base_\\(reduction\\|symmetrization\\)_for_GAMMA"               . font-lock-variable-name-face)
     ("magnetic_state\\|spin_fix_period\\|total_spin\\|[ \t]mode"     . font-lock-variable-name-face)
     ("condition\\|max_\\(scf_\\)?iteration\\|cpumax\\|\\bmethod"     . font-lock-variable-name-face)
@@ -103,7 +103,7 @@
     ("normal_axis\\|slicing_way\\|crtdst"                            . font-lock-variable-name-face)
     ("mobile\\|\\br[x-z]\\b\\|\\bvdw\\b"                             . font-lock-variable-name-face)
     ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"      . font-lock-variable-name-face)
-    ("sol\\|till_n\\|rmxs"                                           . font-lock-variable-name-face)
+    ("\\bsol\\|till_n\\|rmxs"                                        . font-lock-variable-name-face)
     ("s\\(11\\|22\\|33\\)"                                           . font-lock-variable-name-face)
     ("multiple_replica_mode\\|howtogive_coordinates\\|number_of_replicas" . font-lock-variable-name-face)
     ("replica_number\\|from_endpoint_images" . font-lock-variable-name-face)
