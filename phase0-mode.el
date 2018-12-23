@@ -37,7 +37,7 @@
 		"restricted" "unrestricted" "disregard"
 		"rmm3" "davidson" "mddavidson" "pdavidson" "mdkosugi" "pkosugi"
 		"pulay" "broyden2" "simple"
-		"quench" "cg" "gdiis" "bfgs" "velocity_verlet"
+		"quench" "cg2" "gdiis" "bfgs" "velocity_verlet"
 		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const"
 		"by_atomic_positions" "regular_intervals"
 		"ks" "single" "powder" "proportional" "directin"
@@ -56,7 +56,8 @@
     ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence"         . font-lock-type-face)
     ("esm\\|\\bhybrid_functional\\|spinorbit"                            . font-lock-type-face)
     ("hubbard\\|projector_list"                                          . font-lock-type-face)
-    ("\\(unit_cell\\|symmetry\\|atom_list\\|element_list\\|strain\\)[ \t]*{" . font-lock-type-face)
+    ("\\(unit_cell\\|symmetry\\|strain\\)[ \t]*{" . font-lock-type-face)
+    ("\\(atom\\|element\\|vdw\\)_list[ \t]*{" . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
     ("\\(solvers\\|line_minimization\\|[^_]stress\\|[pl \t]dos\\)[ \t]*{"  . font-lock-type-face)
     ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
@@ -105,6 +106,7 @@
     ("element\\|atomicnumber\\|[ \t]mass\\|zeta\\|\\bm[x-z]\\b"      . font-lock-variable-name-face)
     ("\\bsol\\|till_n\\|rmxs"                                        . font-lock-variable-name-face)
     ("s\\(11\\|22\\|33\\)"                                           . font-lock-variable-name-face)
+    ("type\\|c6\\|r0"                                           . font-lock-variable-name-face)
     ("multiple_replica_mode\\|howtogive_coordinates\\|number_of_replicas" . font-lock-variable-name-face)
     ("replica_number\\|from_endpoint_images" . font-lock-variable-name-face)
     ("ueff\\|group\\|radius\\|proj_group\\|\\bl\\b" . font-lock-variable-name-face)
