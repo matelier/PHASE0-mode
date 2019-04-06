@@ -40,7 +40,7 @@
 		"quench" "cg2" "gdiis" "bfgs" "velocity_verlet"
 		"hse06" "cube" "individual" "effective_charge" "piezoelectric_const"
 		"by_atomic_positions" "regular_intervals"
-		"ks" "single" "powder" "proportional" "directin"
+		"ks" "single" "powder" "proportional" "directin" "temperature_control" "velocity_scaling"
 		)))
 
 (defvar phase0-mode-font-lock-keywords
@@ -50,7 +50,7 @@
     ;; Number (literal)
     ("[ \t=][-+]?[0-9\.]+\\([deDE][-+]?[0-9]+\\)?" . font-lock-constant-face)
     ;; 1st Level
-    ("control\\|accuracy\\|structure\\(_evolution\\)?\\|wavefunction_solver\\|charge_mixing\\|postprocessing\\|phonon\\|print\\(out\\)?level" . font-lock-function-name-face)
+    ("^[ \t]*control\\|accuracy\\|structure\\(_evolution\\)?\\|wavefunction_solver\\|charge_mixing\\|postprocessing\\|phonon\\|print\\(out\\)?level" . font-lock-function-name-face)
     ("berry_phase\\|epsilon\\|multiple_replica[ \t]*{" . font-lock-function-name-face)
     ;; 2nd Level
     ("ksampling\\|smearing\\|\\(scf\\|ek\\|force\\)_convergence"         . font-lock-type-face)
@@ -66,13 +66,14 @@
     ("photon\\|transition_moment\\|BZ_integration\\|band_gap_correction" . font-lock-type-face)
     ("replicas[ \t]*{"                                         . font-lock-type-face)
     ("atom_list_end[01]"                                       . font-lock-type-face)
+    ("predictor\\|temperature_control[ \t]*{" . font-lock-type-face)
     ("corelevels"                                       . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
     ("polar\\|poynting\\|energy[ \t]*{"                        . font-lock-reference-face)
     ("spectrum\\|propagation\\|laser"                          . font-lock-reference-face)
-    ("external_stress"                                         . font-lock-reference-face)
+    ("external_stress\\|thermostat" . font-lock-reference-face)
     ;; 4th Level
     ("incident\\|scattered"     . font-lock-variable-name-face)
     ;; Variables
@@ -90,7 +91,7 @@
     ("displacement"                                                  . font-lock-variable-name-face)
     ("dt_\\(upp\\|low\\)er_critical"                                 . font-lock-variable-name-face)
     ("\\bn[xyz]\\b\\|\\bk[123]\\b\\|\\bk[xyz]\\b\\|\\bp[xyz]\\b"     . font-lock-variable-name-face)
-    ("temperature\\|freq_pitch\\|hwhm\\|wavelength"                  . font-lock-variable-name-face)
+    ("\\btemperature[ \t]*=\\|freq_pitch\\|hwhm\\|wavelength"        . font-lock-variable-name-face)
     ("low\\|high\\|step"                                             . font-lock-variable-name-face)
     ("\\b[a-c]_vector\\b"                                            . font-lock-variable-name-face)
     ("\\b[a-c][ \t]*=\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
