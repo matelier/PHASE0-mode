@@ -1,6 +1,6 @@
 ;;PHASE0 MODE
 
-;; Copyright (C) 2015, 2016, 2017, ASMS Co., Ltd.
+;; Copyright (C) 2015, 2016, 2017, 2018, 2019, ASMS Co., Ltd.
 ;; This file cannot be further distributed either in the original or in a modified form.
 ;; Users are free to modify the code solely for their personal use
 ;; and are encouraged to share their improvements with the authors at (info@asms.co.jp).
@@ -67,7 +67,7 @@
     ("replicas[ \t]*{"                                         . font-lock-type-face)
     ("atom_list_end[01]"                                       . font-lock-type-face)
     ("predictor\\|temperature_control[ \t]*{" . font-lock-type-face)
-    ("corelevels"                                       . font-lock-type-face)
+    ("charged_state\\|corelevels\\|checkpoint_file" . font-lock-type-face)
     ;; 3rd Level
     ("mesh[ \t]*{\\|kshift\\|projectors\\|tspace\\|atoms"      . font-lock-reference-face)
     ("partial_charge[ \t]*{\\|layerdos"                        . font-lock-reference-face)
@@ -88,10 +88,10 @@
     ("delta_\\(total_energy\\|eigenvalue\\)"                         . font-lock-variable-name-face)
     ("max_force\\|max_stress"                                        . font-lock-variable-name-face)
     ("edelta_change_to_rmm"                                          . font-lock-variable-name-face)
-    ("displacement"                                                  . font-lock-variable-name-face)
+    ("displacement\\|iteration_ionic"                                                  . font-lock-variable-name-face)
     ("dt_\\(upp\\|low\\)er_critical"                                 . font-lock-variable-name-face)
     ("\\bn[xyz]\\b\\|\\bk[123]\\b\\|\\bk[xyz]\\b\\|\\bp[xyz]\\b"     . font-lock-variable-name-face)
-    ("\\btemperature[ \t]*=\\|freq_pitch\\|hwhm\\|wavelength"        . font-lock-variable-name-face)
+    ("\\btemperature[ \t]*=\\|thermo_group\\|freq_pitch\\|hwhm\\|wavelength" . font-lock-variable-name-face)
     ("low\\|high\\|step"                                             . font-lock-variable-name-face)
     ("\\b[a-c]_vector\\b"                                            . font-lock-variable-name-face)
     ("\\b[a-c][ \t]*=\\|alpha\\|beta\\|gamma\\|omega"                . font-lock-variable-name-face)
@@ -109,7 +109,7 @@
     ("s\\(11\\|22\\|33\\)"                                           . font-lock-variable-name-face)
     ("type\\|c6\\|r0"                                           . font-lock-variable-name-face)
     ("multiple_replica_mode\\|howtogive_coordinates\\|number_of_replicas" . font-lock-variable-name-face)
-    ("replica_number\\|from_endpoint_images" . font-lock-variable-name-face)
+    ("additional_charge\\|delta_ecut" . font-lock-variable-name-face)
     ("ueff\\|group\\|radius\\|proj_group\\|\\bl\\b" . font-lock-variable-name-face)
     ;; Keywords
 ;;    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
