@@ -60,7 +60,7 @@
     ("\\(atom\\|element\\|vdw\\)_list[ \t]*{" . font-lock-type-face)
     ("ferromagnetic_state"                                               . font-lock-type-face)
     ("\\(solvers\\|line_minimization\\|[^_]stress\\|[pl \t]dos\\)[ \t]*{"  . font-lock-type-face)
-    ("[^_]charge[ \t]*{"                                                 . font-lock-type-face)
+    ("[^_]charge[ \t]*{\\|boltztrap"                                     . font-lock-type-face)
     ("rmm[ \t]*{\\|mixing_methods"                                       . font-lock-type-face)
     ("lattice[ \t]*{\\|polarization\\|workfunc\\|wannier\\|raman"        . font-lock-type-face)
     ("photon\\|transition_moment\\|BZ_integration\\|band_gap_correction" . font-lock-type-face)
@@ -109,7 +109,7 @@
     ("s\\(11\\|22\\|33\\)"                                           . font-lock-variable-name-face)
     ("type\\|c6\\|r0"                                           . font-lock-variable-name-face)
     ("multiple_replica_mode\\|howtogive_coordinates\\|number_of_replicas" . font-lock-variable-name-face)
-    ("additional_charge\\|delta_ecut" . font-lock-variable-name-face)
+    ("additional_charge\\|delta_ecut\\|prefix" . font-lock-variable-name-face)
     ("ueff\\|group\\|radius\\|proj_group\\|\\bl\\b" . font-lock-variable-name-face)
     ;; Keywords
 ;;    ("\\bo\\(n\\|ff\\)\\b"                          . font-lock-keyword-face) ;; on / off
